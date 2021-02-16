@@ -269,7 +269,7 @@ def evaluate_sed_likelihood(sed, sed_err, atlas, fit_mask = [], zbest = None, de
         pg_z = atlas['zval']
         #redshift_mask = (np.abs(pg_z - zbest) > 0.1*zbest)
         redshift_mask = (np.abs(pg_z - zbest) > deltaz)
-        chi2[redshift_mask] = np.amax(chi2)+1e3
+        chi2[np.squeeze(redshift_mask)] = np.amax(chi2)+1e3
 
     return chi2, norm_fac
 
